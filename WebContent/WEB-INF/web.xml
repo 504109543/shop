@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
+  <!-- 表示遵守w3的xml schema规范，xml解析器解析xml文件时，就明白按照什么规范解析了。 -->
+  <display-name>shop</display-name>
+  <welcome-file-list>
+      
+    <welcome-file>admin/login.jsp</welcome-file>  
+  </welcome-file-list>
+ 
+  <filter>
+<filter-name>OpenSessionInViewFilter</filter-name>
+<filter-class>org.springframework.orm.hibernate4.support.OpenSessionInViewFilter</filter-class>
+<init-param>
+            <param-name>sessionFactoryBeanName</param-name>
+            <param-value>sessionFactory</param-value>
+        </init-param>
+        <init-param>  
+      <param-name>singleSession</param-name>  
+      <param-value>true</param-value>  
+    </init-param> 
+</filter>
+<filter-mapping>
+<filter-name>OpenSessionInViewFilter</filter-name>
+<url-pattern>*.action</url-pattern>
+</filter-mapping>
+  
+  <!-- 添加对spring的支持 -->  
+  <context-param>  
+    <param-name>contextConfigLocation</param-name>  
+    <param-value>classpath:applicationContext.xml</param-value>  
+  </context-param>  
+    
+    <!-- 定义Spring监听器，加载Spring  -->
+    <listener>  
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>  
+    </listener>  
+    
+    <listener>  
+        <listener-class>com.shop.action.InitAction</listener-class>  
+    </listener> 
+      
+  <!-- 添加对struts2的支持 -->  
+  <filter>  
+    <filter-name>struts2</filter-name>  
+    <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>  
+  </filter>   
+  
+  <filter-mapping>  
+    <filter-name>struts2</filter-name>  
+    <url-pattern>/*</url-pattern>  
+  </filter-mapping>  
+  
+ 
+</web-app>

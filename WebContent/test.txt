@@ -1,0 +1,9 @@
+[{"mArticleUrl":"http://192.168.191.1:8080/shop/product_showProduct.action?productId=294",
+"mPictureUrl":"http://192.168.191.1:8080/shop/images/product/3.jpg",
+"mTitle":"爱丽缇 2014夏装新款韩版七分袖圆领"},
+{"mArticleUrl":"http://192.168.191.1:8080/shop/product_showProduct.action?productId=9",
+"mPictureUrl":"http://192.168.191.1:8080/shop/images/product/6.jpg",
+"mTitle":"缪佳 春装新款2014女士牛仔裤女小脚"},
+{"mArticleUrl":"http://192.168.191.1:8080/shop/product_showProduct.action?productId=125",
+"mPictureUrl":"http://192.168.191.1:8080/shop/images/product/105.jpg",
+"mTitle":"海尔模卡（MOOKA） U50H7 50英寸 4K极高清8核"}]

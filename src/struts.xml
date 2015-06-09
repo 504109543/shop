@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE struts PUBLIC  
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"  
+    "http://struts.apache.org/dtds/struts-2.3.dtd">  
+      
+<struts>  
+    <constant name="struts.i18n.encoding" value="UTF-8" />  
+    <constant name="struts.action.extension" value="action" />  
+
+
+    
+	<package name="shop" namespace="/" extends="json-default">  
+	     <action name="getjson" class="com.shop.action.JSONAction" method="json">
+           <result type="json" />
+        </action>
+	    
+        <action name="product_*" class="com.shop.action.ProductAction" method="{1}">
+        	 <result name="success" ></result>
+        	<!-- <result type="json" /><param name=""></param> </result>-->
+        </action>
+ 
+        <action name="user_*" class="com.shop.action.UserAction" method="{1}">       	
+        	<result name="logout2" type="redirect">admin/login.jsp</result>
+        	<result name="adminError">admin/login.jsp</result>
+        	<result name="adminLogin" type="redirect">admin/main.jsp</result>
+        </action>
+        
+        <action name="shopping_*" class="com.shop.action.ShoppingAction" method="{1}">
+        	<result name="success" type="json"><param name="shoppingCart">shoppingCart</param></result>
+        	<result name="list" type="redirectAction"></result>
+        </action>
+        
+        <action name="order_*" class="com.shop.action.OrderAction" method="{1}">
+        </action>
+        
+        <action name="productBigType_*" class="com.shop.action.ProductBigTypeAction" method="{1}">
+        </action>
+        
+        <action name="productSmallType_*" class="com.shop.action.ProductSmallTypeAction" method="{1}">
+        </action>
+        
+        <action name="sys_*" class="com.shop.action.SysAction" method="{1}">
+        </action>
+    </package>  
+</struts>   
